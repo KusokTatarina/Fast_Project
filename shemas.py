@@ -1,4 +1,4 @@
-from pydantic import BaseModel
+from pydantic import BaseModel, ConfigDict
 from typing import Optional
 
 class TaskAdd(BaseModel):
@@ -8,6 +8,7 @@ class TaskAdd(BaseModel):
 class Task(TaskAdd):
     id: int
 
+    model_config = ConfigDict(from_attributes=True)
 
 class TaskId(BaseModel):
     ok: bool = True
